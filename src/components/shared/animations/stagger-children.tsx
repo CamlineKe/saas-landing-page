@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Easing } from "framer-motion"
 import { ReactNode } from "react"
 
 interface StaggerChildrenProps {
@@ -36,7 +36,7 @@ export function StaggerChildren({
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut",  // Fixed: Changed from number array to string
+        ease: "easeOut" as Easing,  // Fixed: Changed from number array to string
       },
     },
   }

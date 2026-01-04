@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Easing } from "framer-motion"
 import { ReactNode } from "react"
 
 interface FadeInProps {
@@ -34,7 +34,7 @@ export function FadeIn({
       transition: {
         duration,
         delay,
-        ease: "easeOut",  // Fixed: Changed from number array to string
+        ease: "easeOut" as Easing,  // Fixed: Changed from number array to string
       },
     },
   }

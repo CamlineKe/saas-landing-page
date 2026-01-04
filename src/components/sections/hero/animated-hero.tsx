@@ -8,27 +8,13 @@ import { Typewriter, Float } from "@/components/shared/animations"
 import { DashboardPreview } from "./dashboard-preview"
 
 export function AnimatedHero() {
-  const fadeUpVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.1 * i,
-        ease: "easeOut"  // Fixed: Changed from number array to string
-      }
-    })
-  }
-
   return (
     <section id="hero" className="container mx-auto px-4 py-12 md:py-20">
       <div className="max-w-4xl mx-auto text-center mb-12">
         <motion.div
-          custom={0}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUpVariants}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
           <Badge className="mb-4" variant="outline">
             <Float intensity={3} duration={2}>
@@ -53,20 +39,18 @@ export function AnimatedHero() {
         </motion.h1>
 
         <motion.p 
-          custom={2}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUpVariants}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
         >
           A modern SaaS platform that helps teams design, develop, and deploy products with incredible speed and precision.
         </motion.p>
         
         <motion.div 
-          custom={3}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUpVariants}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
         >
           <Button 
@@ -96,10 +80,9 @@ export function AnimatedHero() {
         </motion.div>
         
         <motion.div 
-          custom={4}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUpVariants}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="inline-flex items-center gap-4 text-sm text-muted-foreground"
         >
           <span className="flex items-center gap-2">

@@ -1,65 +1,117 @@
-import Image from "next/image";
+import { MainNav } from "@/components/layout/navigation/main-nav"
+import { MainFooter } from "@/components/layout/footer/main-footer"
+import { PricingSection } from "@/components/sections/pricing/pricing-section"
+import { TestimonialsSection } from "@/components/sections/testimonials/testimonials-section"
+import { FAQSection } from "@/components/sections/faq/faq-section"
+import { ResourcesSection } from "@/components/sections/resources/resources-section"
+import { ContactSection } from "@/components/sections/contact/contact-section"
+import { FinalCTA } from "@/components/sections/cta/final-cta"
+import { AnimatedHero } from "@/components/sections/hero/animated-hero"
+import { FadeIn, StaggerChildren } from "@/components/shared/animations"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="min-h-screen flex flex-col">
+      <MainNav />
+      
+      <main className="flex-1">
+        {/* Hero Section with Animations */}
+        <AnimatedHero />
+
+        {/* Feature Cards with Animations */}
+        <FadeIn>
+          <div id="features" className="max-w-6xl mx-auto mb-20 px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              Everything you need to <span className="text-teal-600 dark:text-teal-400">succeed</span>
+            </h2>
+            
+            <StaggerChildren className="grid md:grid-cols-3 gap-8">
+              <Card className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                    <div className="h-12 w-12 rounded-xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg className="h-6 w-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    Lightning Fast
+                  </CardTitle>
+                  <CardDescription>Optimized for performance</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Built with Next.js 15 and Tailwind CSS for exceptional speed and SEO performance.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group border-teal-500/20 dark:border-teal-400/20 relative overflow-hidden">
+                <div className="absolute top-4 right-4">
+                  <Badge className="bg-teal-500 hover:bg-teal-600">Most Popular</Badge>
+                </div>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                    <div className="h-12 w-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg className="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                      </svg>
+                    </div>
+                    Modular Design
+                  </CardTitle>
+                  <CardDescription>Component-based architecture</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Built with shadcn/ui for complete customization and consistency across your application.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                    <div className="h-12 w-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg className="h-6 w-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                      </svg>
+                    </div>
+                    Fully Responsive
+                  </CardTitle>
+                  <CardDescription>Works on all devices</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Perfectly responsive design that works seamlessly on mobile, tablet, and desktop.
+                  </p>
+                </CardContent>
+              </Card>
+            </StaggerChildren>
+          </div>
+        </FadeIn>
+
+        {/* Pricing Section */}
+        <PricingSection />
+
+        {/* Testimonials Section */}
+        <TestimonialsSection />
+
+        {/* FAQ Section */}
+        <FAQSection />
+
+        {/* Resources Section */}
+        <ResourcesSection />
+
+        {/* Contact Section */}
+        <ContactSection />
+
+        {/* Final CTA Section */}
+        <FinalCTA />
       </main>
+
+      {/* Footer */}
+      <MainFooter />
     </div>
-  );
+  )
 }

@@ -35,7 +35,7 @@ export function DashboardPreview() {
       transition: {
         delay: i * 0.1,
         duration: 0.4,
-        ease: "backOut"
+        ease: "easeOut"  // Changed from "backOut" to standard easing
       }
     })
   }
@@ -47,7 +47,7 @@ export function DashboardPreview() {
       transition: {
         duration: 0.8,
         delay: 0.5,
-        ease: "circOut"
+        ease: "easeOut"  // Fixed easing
       }
     })
   }

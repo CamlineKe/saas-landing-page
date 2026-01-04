@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, Easing } from "framer-motion"
 import { BarChart3, Users, TrendingUp, Zap, Target, Clock } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -35,7 +35,7 @@ export function DashboardPreview() {
       transition: {
         delay: i * 0.1,
         duration: 0.4,
-        ease: "easeOut"  // Changed from "backOut" to standard easing
+        ease: "easeOut" as Easing
       }
     })
   }
@@ -47,7 +47,7 @@ export function DashboardPreview() {
       transition: {
         duration: 0.8,
         delay: 0.5,
-        ease: "easeOut"  // Fixed easing
+        ease: "easeOut" as Easing
       }
     })
   }

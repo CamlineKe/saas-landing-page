@@ -34,7 +34,7 @@ export function FadeIn({
       transition: {
         duration,
         delay,
-        ease: [0.25, 0.4, 0.25, 1],
+        ease: "easeOut",  // Fixed: Changed from number array to string
       },
     },
   }
